@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'maven'
+    id 'maven-publish'
 }
 
 group 'com.au'
@@ -9,6 +11,19 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.au'
+            artifactId = 'web-utils'
+            version = '0.1-SNAPSHOT'
+
+            from components.java
+        }
+    }
 }
 
 dependencies {
